@@ -1,0 +1,35 @@
+
+    <div class="container-fluid table-responsive-sm media" style="overflow-x:auto;">
+     
+        	<table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <td scope="col">Flight Number</td>
+                        <td scope="col">Mission Name</td>
+                        <td scope="col">Launch Year</td>
+                        <td scope="col">Launch Date</td>
+        			</tr>
+        		</thead>
+        		<tbody>
+      
+        			<tr *ngFor="let item of pageOfItems">
+        			<td>{{item.flight_number}}</td>
+        			<td>{{item.mission_name}}</td>
+        			<td>{{item.launch_year}}</td>
+        			<td>{{item.launch_date_local | date:'shortDate' }}</td> 
+        			<td><button class="button-secondary" (click)="Delete(item, pageOfItems)">Delete</button></td>
+        			</tr>
+            
+        		</tbody>
+        	</table>
+    </div>
+    <div class="table-responsive align-self-center">
+        <app-new-jw (changePage)="onChangePage($event)" ></app-new-jw>
+
+    </div>
+
+
+
+<router-outlet></router-outlet>
+
+
